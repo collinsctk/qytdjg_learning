@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>联系人</title>
+</head>
+<body>
+
+    {% if form.errors %}
+        <p style="color: read">{{ form.errors }}</p>
+    {% endif %}
+    <form action="" method="post">{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type='submit', value='Submit'>
+
+    </form>
+</body>
+</html>

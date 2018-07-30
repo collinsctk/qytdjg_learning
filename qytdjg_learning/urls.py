@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import DB,qytindex,Form
-
+from .views import DB,qytindex,Form,CommonViewClass
+from django.views.generic.base import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('testdb/', DB.testORM),
@@ -30,5 +30,14 @@ urlpatterns = [
     path('requestinfo/', Form.requestInfo),
     path('searchform/', Form.searchForm),
     path('search/', Form.search),
+    path('searchverify/', Form.searchVerify),
+    path('searchverifyad/', Form.searchVerifyad),
+    path('contact/', Form.contact),
+    path('myview/', CommonViewClass.MyView.as_view()),
+    path('homepage/', CommonViewClass.HomePageView.as_view()),
+    path('ciscohome/', RedirectView.as_view(url='http://www.cisco.com')),
+    path('movieview/', CommonViewClass.MovieView.as_view()),
+    path('movieviewquery/', CommonViewClass.QueryMovieView.as_view()),
+    path('movie_detail/<int:pk>/', CommonViewClass.MovieDetailView.as_view()),
     path('', qytindex.index),
 ]

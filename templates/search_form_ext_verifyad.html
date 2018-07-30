@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+    {% if errors %}
+        <p style="color: red">
+        <ul>
+            {% for error in errors %}
+                <li> {{ error }} </li>
+            {% endfor %}
+        </ul>
+        </p>
+    {% endif %}
+
+        <p>You searched for:<strong>{{ query }}</strong></p>
+        {% if movies %}
+            <p>Found {{ movies|length }} movies</p>
+            <ul>
+            {% for movie in movies %}
+                <li>{{ movie.name }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No movie matched</p>
+        {% endif %}
+
+    <form action = "/searchverifyad" method="get">
+        <input type = 'text', name="name">
+        <input type = 'text', name="value1">
+        <input type = 'text', name="value2">
+        <input type = "submit", value="搜索">
+    </form>
+</body>
+</html>
