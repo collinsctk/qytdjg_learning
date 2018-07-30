@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import DB,qytindex
+from .views import DB,qytindex,Form
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +27,8 @@ urlpatterns = [
     path('multiquery/', DB.multiQuery),
     path('limitdata/', DB.limitData),
     path('update/', DB.update),
+    path('requestinfo/', Form.requestInfo),
+    path('searchform/', Form.searchForm),
+    path('search/', Form.search),
     path('', qytindex.index),
 ]
