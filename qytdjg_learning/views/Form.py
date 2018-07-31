@@ -8,6 +8,7 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
+from django.shortcuts import render
 
 # 表单
 # 获取客户端请求的相关信息
@@ -128,11 +129,25 @@ def searchVerifyad(request):
 from mt.forms import MyForm
 # from django.views.decorators.csrf import csrf_exempt
 # @csrf_exempt
-from django.views.decorators.csrf import csrf_protect
-from django.middleware.csrf import get_token
-@csrf_protect
+# from django.views.decorators.csrf import csrf_protect
+# from django.middleware.csrf import get_token
+# @csrf_protect
 
 
+# def contact(request):
+#     # print(get_token(request))
+#     if request.method == 'POST':
+#         form = MyForm(request.POST)
+#         if form.is_valid():
+#             print('完成与业务相关的工作')
+#             return HttpResponse('OK')
+#         else:
+#             return render_to_response('my_form.html',{'form':form, 'csrf_token':get_token(request)})
+#     else:
+#         form = MyForm(initial={'name':'秦柯', 'email':'collinsctk@qytang.com', 'message':'没有信息'}) # 初始值
+#         return render_to_response('my_form.html',{'form':form, 'csrf_token':get_token(request)})
+
+# 处理CSRF问题
 def contact(request):
     # print(get_token(request))
     if request.method == 'POST':
@@ -141,10 +156,10 @@ def contact(request):
             print('完成与业务相关的工作')
             return HttpResponse('OK')
         else:
-            return render_to_response('my_form.html',{'form':form, 'csrf_token':get_token(request)})
+            return render(request,'my_form.html',{'form':form})
     else:
         form = MyForm(initial={'name':'秦柯', 'email':'collinsctk@qytang.com', 'message':'没有信息'}) # 初始值
-        return render_to_response('my_form.html',{'form':form, 'csrf_token':get_token(request)})
+        return render(request,'my_form.html',{'form':form})
 
 if __name__ == "__main__":
     pass

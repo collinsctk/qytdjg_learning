@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import DB,qytindex,Form,CommonViewClass
+from .views import DB,qytindex,Form,CommonViewClass,MyTemplate
 from django.views.generic.base import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('simpletemplate/', MyTemplate.simpleTemplate),
+    path('multicontext/', MyTemplate.multiContext),
+    path('loadtemplatefile/', MyTemplate.loadTemplateFile),
+    path('loadtemplatefile1/', MyTemplate.loadTemplateFile1),
+    path('loadtemplatefile2/', MyTemplate.loadTemplateFile2),
     path('testdb/', DB.testORM),
     path('changeData/', DB.changeData),
     path('filter/', DB.filter),
