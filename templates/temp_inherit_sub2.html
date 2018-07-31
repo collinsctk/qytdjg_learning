@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% extends "temp_inherit_base.html" %}
+    <meta charset="UTF-8">
+    <title>{% block title %}汽车产品展示{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <ul>
+        <li>{{ car_product1 }}</li>
+        <li>{{ car_product2 }}</li>
+    </ul>
+    {% endblock %}
+    {% block footer %}
+        <p>欢迎访问汽车之家</p>
+    {% endblock %}
+</body>
+</html>

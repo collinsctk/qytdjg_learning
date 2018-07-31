@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% extends "temp_inherit_base.html" %}
+    <meta charset="UTF-8">
+    <title>{% block title %}手机产品展示{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <ul>
+        <li>{{ mobile_product1 }}</li>
+        <li>{{ mobile_product2 }}</li>
+    </ul>
+    {% endblock %}
+</body>
+</html>

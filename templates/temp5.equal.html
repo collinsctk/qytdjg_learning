@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断两个值是否相等</title>
+</head>
+<body>
+    {% ifequal user currentuser %}
+        <h1>用户已经登录</h1>
+    {% endifequal %}
+    {% ifequal user 'collinsctk' %}
+        <h2>用户是collinsctk</h2>
+    {% endifequal %}
+    {# 单行注释 #}
+    {% comment %}
+    多行注释
+    <!--abcd--> html注释会出现在页面里边
+    多行注释
+    {% endcomment %}
+
+</body>
+</html>

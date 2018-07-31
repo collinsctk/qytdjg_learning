@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temp1</title>
+</head>
+<body>
+    {% if today_is_weekend %}
+        <p style="color: red"><strong>今天是周末.yeah!</strong></p>
+    {% elif field1 %}
+        <p style="color: red"><strong>今天什么情况!</strong></p>
+    {% else %}
+        <p style="color: red"><strong>今天不是周末.要上班!</strong></p>
+    {% endif %}
+    It is now {{ current_date }}
+    {% if field1 and field2 %}
+        {% if field3 %}
+            <p>{{ field3 }}</p>
+        {% endif %}
+    <ul>
+        <li>{{ field1 }}</li>
+        <li>{{ field2 }}</li>
+    </ul>
+    {% elif field1 or field2 or field3 %}
+    <ul>
+        <li>{{ field1 }},{{ field2 }},{{ field3 }}</li>
+    </ul>
+    {% elif not field1 %}
+        <li>{{ field2 }}</li>
+        <li>{{ field3 }}</li>
+    {% endif %}
+</body>
+</html>
